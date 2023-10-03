@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h3 class="my-2">Edit Note</h3>
+<form action="" method="POST">
+  {{ form.hidden_tag() }}
+  <div class="form-group my-3">
+    {{ form.title.label }}
+    {{ form.title(class_='form-control') }}
+  </div>
+  <div class="form-group my-3">
+    {{ form.description.label }}
+    {{ form.description(class_='form-control', rows=10) }}
+  </div>
+  <div class="form-group my-3">
+    {{ form.tags.label }}
+    {{ form.tags(class_='form-control') }}
+  </div>
+  <button type="submit" class="btn btn-primary">update</button>
+  <a href="{{ url_for('index') }}" class="btn btn-secondary my-2">Cancel</a>
+</form>
+
+{% endblock %}
+
