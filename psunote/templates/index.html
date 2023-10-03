@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block body %}
+<ul class="nav justify-content-center" style="padding-top: 1em;">
+  <li class="nav-item">
+    <a class="btn btn-primary" href="{{ url_for('notes_create') }}">Create</a>
+  </li>
+</ul>
+{% for t in note.id %}
+<div class="card my-3">
+  <div class="card-body">
+    <h4 class="card-title">
+      {{ note.title }}
+    </h4>
+    <div class="card-text my-3">
+      {{ note.description }}
+    </div>
+    <div class="card-footer text-muted">
+      Tags: 
+      {% for t in note.tags %}
+        <a href="{{ url_for('tags_view', tag_name=t.name) }}">{{ t.name }}</a>
+    {% endfor %}
+      <br>
+      Last update: {{ note.updated_date }}
+    </div>
+  </div>
+</div>
+{% endfor %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+{% endblock %}
+
