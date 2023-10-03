@@ -5,11 +5,13 @@
     <a class="btn btn-primary" href="{{ url_for('notes_create') }}">Create</a>
   </li>
 </ul>
-{% for t in note.id %}
+{% for note in notes %}
 <div class="card my-3">
   <div class="card-body">
     <h4 class="card-title">
       {{ note.title }}
+      <a href="{{ url_for('notes_update', note_id=note.id) }}"><i class="fas fa-edit"></i></a>
+      <a style="justify-content: flex-end;" href="{{ url_for('notes_delete', note_id=note.id) }}"><i class="fas fa-trash-alt" style="color: red;"></i></a>
     </h4>
     <div class="card-text my-3">
       {{ note.description }}
